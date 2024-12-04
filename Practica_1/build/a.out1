@@ -1,0 +1,36 @@
+**** module/scope: Test1
+     Flip-Flops   : 0
+     Logic Gates  : 0
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted
+**** module/scope: Test1.TEST_CASE
+     Flip-Flops   : 0
+     Logic Gates  : 0
+**** module/scope: Test1.ut
+     Flip-Flops   : 0
+     Logic Gates  : 20
+     ADDER[5]: 2 units
+**** module/scope: Test1.uut
+     Flip-Flops   : 0
+     Logic Gates  : 8
+**** module/scope: Test1.uuut
+     Flip-Flops   : 0
+     Logic Gates  : 3
+**** module/scope: Test1.uuuut
+     Flip-Flops   : 0
+     Logic Gates  : 9
+**** module/scope: Test1.uuuuut
+     Flip-Flops   : 0
+     Logic Gates  : 15
+**** module/scope: Test1.uuuuuut
+     Flip-Flops   : 0
+     Logic Gates  : 17
+**** module/scope: Test1.uuuuuuut
+     Flip-Flops   : 0
+     Logic Gates  : 3
+**** TOTALS
+     Flip-Flops   : 0
+     Logic Gates  : 75
+     ADDER[5]: 2 units
+     LOG[13]: 1 unaccounted
+     LOG[14]: 1 unaccounted
