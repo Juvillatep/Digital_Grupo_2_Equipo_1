@@ -38,7 +38,7 @@ El otro módulo, que recibe ambas entradas, es el sumador. Dado que el requerimi
 Entrando en más detalle sobre cada uno de los módulos, comenzaremos con el módulo sumador, que es un sumador de 4 bits compuesto por la instanciación de 4 módulos sumadores de 1 bit. Cada uno de estos módulos está diseñado con las ecuaciones booleanas obtenidas de un diagrama de Karnaugh estándar, por lo que se requiere un acarreo de entrada, el cual se establece por defecto en b'0' para el primer módulo. Para los módulos restantes, el acarreo de entrada será el acarreo de salida del módulo anterior. De esta forma, el último módulo sumador de 1 bit nos dará el acarreo de salida del módulo de 4 bits. En cuanto a la suma, cada módulo de 1 bit realiza la suma y asigna ese resultado al número de bit correspondiente de Sum[3:0]. Finalmente, la salida del módulo de 4 bits será Sum[3:0] y Co (acarreo de salida), lo cual se asigna a los módulos de cada nivel de carga, como se muestra en la Figura 1.2.
 
 <p align="center">
-  <img src="/Images/Diagrama RTL.png" alt="Diagrama RTL" width="900">
+  <img src="/Lab_02/Images/Diagrama RTL.png" alt="Diagrama RTL" width="900">
   <br>
   <b>Figura 1.2 Diagrama RTL</b>
 </p>
@@ -61,7 +61,7 @@ Como resultado final del módulo total del monitor de carga, se obtienen 5 salid
 Las simulaciones son una herramienta clave en el proceso de diseño de circuitos digitales, ya que nos permiten comprobar que los resultados obtenidos al ejecutar nuestro diseño sean los esperados y que cumplan con las condiciones dadas. A través de las simulaciones, podemos verificar la funcionalidad y el comportamiento del sistema en condiciones controladas antes de su implementación en hardware. Este proceso reduce significativamente el riesgo de errores y fallas en la etapa de implementación. A continuación, se presenta la simulación general de todo el reto, que incluye sus dos entradas (A y B), la suma de estas con su correspondiente acarreo de salida (Sum y Co), y las diferentes salidas de cada uno de los módulos para los diferentes niveles y funcionalidades requeridas. De este modo, las simulaciones no solo nos permiten validar el diseño, sino también optimizar su rendimiento, asegurando que el sistema funcione correctamente bajo diversas condiciones operativas.
 
 <p align="center">
-  <img src="/Images/Simulación general.png" alt="Uso de recursos FPGA" width="800">
+  <img src="/Lab_02/Images/Simulación general.png" alt="Uso de recursos FPGA" width="800">
   <br>
   <b>Figura 2.1 Simulación general modulos del monitor de carga</b>
 </p>
@@ -71,7 +71,7 @@ Las simulaciones son una herramienta clave en el proceso de diseño de circuitos
 Una de las funcionalidades requeridas, además de los niveles de carga, es brindar una alerta cuando alguna de las baterías del banco se encuentre totalmente descargada, es decir, con un valor de '0'. Como se puede observar en la figura 2.2, la salida 'Ea' tiene un nivel alto únicamente cuando A=0. De manera similar, 'Eb' tiene un valor alto cuando B=0.
 
 <p align="center">
-  <img src="/Images/Baterias%20descargadas.png" alt="Baterias descargadas" width="800">
+  <img src="/Lab_02/Images/Baterias%20descargadas.png" alt="Baterias descargadas" width="800">
   <br>
   <b>Figura 2.2 Simulación modulo de baterias descargadas</b>
 </p>
@@ -81,7 +81,7 @@ Una de las funcionalidades requeridas, además de los niveles de carga, es brind
 Como se mencionó en la etapa de diseño, el módulo de sumador es la base de toda la solución al reto, ya que proporciona el valor de entrada para todos los módulos de nivel de carga. Como se observa en la figura 2.3, la suma cumple su función adecuadamente. Además, podemos notar que el acarreo de salida (Co) aumenta su valor cuando la suma supera 15 (o F en notación hexadecimal), lo que indica que el valor ha excedido la capacidad máxima de un sumador de 4 bits. Un sumador de 4 bits, al operar con dos entradas de 4 bits cada una, puede sumar valores desde 0 hasta 15 (en decimal), y cuando el resultado es mayor a 15, el acarreo (Co) se activa, llevando el exceso al siguiente bit. Este comportamiento es esencial para la correcta propagación de los valores en los módulos de nivel de carga y para asegurar la exactitud en el control del sistema.
 
 <p align="center">
-  <img src="/Images/Modulo sumador4bits.png" alt="Sumador" width="800">
+  <img src="/Lab_02/Images/Modulo sumador4bits.png" alt="Sumador" width="800">
   <br>
   <b>Figura 2.3 Simulación modulo sumador de 4 bits</b>
 </p>
@@ -95,7 +95,7 @@ El funcionamiento de los módulos de los diferentes niveles de carga es el mismo
 Este nivel representa el estado más bajo de carga del banco de baterías, correspondiente a valores entre 1 y 3, como se muestra en la figura 2.4.
 
 <p align="center">
-  <img src="/Images/Nivel critico.png" alt="Carga critica" width="800">
+  <img src="/Lab_02/Images/Nivel critico.png" alt="Carga critica" width="800">
   <br>
   <b>Figura 2.4 Simulación modulo nivel de carga critica</b>
 </p>
@@ -105,7 +105,7 @@ Este nivel representa el estado más bajo de carga del banco de baterías, corre
 Los valores para los cuales la salida de este módulo estará en alto se encuentran entre 4 y 12, lo que indica un nivel de batería bajo. Esto se puede evidenciar en la figura 2.5.
 
 <p align="center">
-  <img src="/Images/Nivel bajo.png" alt="Carga baja" width="800">
+  <img src="/Lab_02/Images/Nivel bajo.png" alt="Carga baja" width="800">
   <br>
   <b>Figura 2.5 Simulación modulo nivel de carga baja</b>
 </p>
@@ -115,7 +115,7 @@ Los valores para los cuales la salida de este módulo estará en alto se encuent
 El nivel medio de carga de las baterías se expresa en este módulo, con una salida en alto cuando la suma de los valores de las baterías se encuentra entre 13 y 21. Esto se puede corroborar en la figura 2.6.
 
 <p align="center">
-  <img src="/Images/Nivel regular.png" alt="Carga regular" width="800">
+  <img src="/Lab_02/Images/Nivel regular.png" alt="Carga regular" width="800">
   <br>
   <b>Figura 2.6 Simulación modulo nivel de carga regular</b>
 </p>
@@ -125,7 +125,7 @@ El nivel medio de carga de las baterías se expresa en este módulo, con una sal
 Los valores aceptables de carga de las baterías se encuentran entre 22 y 29, lo que permite generar una salida en alto, como se observa en la figura 2.7.
 
 <p align="center">
-  <img src="/Images/Nivel aceptable.png" alt="Carga aceptable" width="800">
+  <img src="/Lab_02/Images/Nivel aceptable.png" alt="Carga aceptable" width="800">
   <br>
   <b>Figura 2.7 Simulación modulo nivel de carga aceptable</b>
 </p>
@@ -135,7 +135,7 @@ Los valores aceptables de carga de las baterías se encuentran entre 22 y 29, lo
 Este módulo indica que la carga de las baterías está al máximo o completa. La salida solo estará en alto cuando el valor total de la suma del banco de baterías sea igual a 30, o cuando cada batería individualmente tenga un valor de 15, respectivamente. Ver figura 2.8.
 
 <p align="center">
-  <img src="/Images/Carga completa.png" alt="Carga completa" width="800">
+  <img src="/Lab_02/Images/Carga completa.png" alt="Carga completa" width="800">
   <br>
   <b>Figura 2.8 Simulación modulo carga completa</b>
 </p>
@@ -166,7 +166,7 @@ Link del video:https://youtu.be/H0RDd_rVTTs
     El diseño de sumadores y comparadores en una FPGA afecta directamente al uso de recursos como LUTs (Look-Up Tables), Flip-Flops (FFs) y bloques DSP. En el caso de un sumador de 4 bits, que se implementa como la instanciación de cuatro sumadores de 1 bit sencillos, se utilizan principalmente LUTs y FFs para realizar las operaciones de suma bit a bit. Este diseño es simple, pero más lento en comparación con sumadores optimizados, como los que utilizan técnicas de fast carry o look-ahead carry, que requieren más LUTs. En cuanto a los comparadores, la mayoría son de 4 bits, con excepción de un módulo de 2 bits. Los comparadores de 4 bits consumen más LUTs y FFs que los de 2 bits, ya que la lógica combinacional es más compleja a medida que aumenta el ancho de los datos. El ancho de bits y la optimización del diseño, como el uso de bloques DSP o la implementación en pipeline, son factores clave que afectan el consumo de recursos y el rendimiento. Para optimizar el uso de recursos, es recomendable aprovechar los bloques DSP cuando sea posible, reducir el ancho de bits si no es necesario, y usar herramientas de síntesis para mejorar la eficiencia de la lógica combinacional.
 
     <p align="center">
-      <img src="/Images/Uso de recursos.png" alt="Uso de recursos" width="500">
+      <img src="/Lab_02/Images/Uso de recursos.png" alt="Uso de recursos" width="500">
       <br>
       <b>Figura 4.1 Uso de recursos del diseño en Quartus</b>
     </p>
