@@ -1,7 +1,7 @@
 `include "Sumador_1B.v"
 `include "Sumador_4B.v"
 
-module SUMADOR_8BITS(
+module SUMADOR_4BAT(
     input [3:0] A,B,C,D,
     input Ci,
     output [5:0] Sum,
