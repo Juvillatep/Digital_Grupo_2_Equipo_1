@@ -30,7 +30,7 @@ Para comenzar con el diseño de nuestra solución al reto planteado, elaboramos 
 El otro módulo, que recibe ambas entradas, es el sumador. Dado que el requerimiento del reto es comparar la carga total del banco de baterías, es necesario conocer la suma total de la carga de cada una de las baterías. De este modulo sale Sum[3:0] que es la suma de los 4 bit, y se planteo onicialmente asi en el diagrama de bloques, sin embargo los 4 bits al superar la cantidad de 15 'Decimal' requiere un bit extra para poder reflejar la cantidad de la suma, o como se evidenciara en la Figura 1.2, un acarreo de salida de 1 bit. Estas dos variables de salida se le asignan a los diferentes modulos comparativos de cada nivel de carga planteado para la solución del reto.
 
 <p align="center">
-  <img src="/Images/Diagrama de bloques.png" alt="Diagrama bloques" width="900">
+  <img src="Digital_Grupo_2_Equipo_1/Lab_02/Images/Diagrama de bloques.png" alt="Diagrama bloques" width="900">
   <br>
   <b>Figura 1.1 Diagrama de bloques,Diseño general modulos del monitor de carga</b>
 </p>
